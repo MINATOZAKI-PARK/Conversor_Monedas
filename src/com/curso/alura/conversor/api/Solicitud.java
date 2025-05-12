@@ -57,7 +57,7 @@ public class Solicitud {
         return client.send(request, HttpResponse.BodyHandlers.ofString());
     }
 
-    /*public static void main(String[] args) throws IOException, InterruptedException {
+    public static void main(String[] args) throws IOException, InterruptedException {
         try {
             Solicitud s = new Solicitud();
             HttpResponse respuesta = s.solicitarCotizacion("USD","MXN",100);
@@ -68,6 +68,6 @@ public class Solicitud {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-    }*/
+    }
 
 }
