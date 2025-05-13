@@ -12,7 +12,7 @@ public class Main {
         System.out.println("Conversor de divisas"); // Corregido "Coversor" a "Conversor"
         System.out.println("====================\n");
 
-        Solicitud solicitud = new Solicitud("D:\\Proyectos-Java\\conversor\\src\\key");
+        Solicitud solicitud = new Solicitud("D:\\Proyectos-Java\\conversor\\src\\key.txt");
 
         ListaDivisas listaDivisas = new ListaDivisas();
         listaDivisas.mostrarDivisasDisponibles();
