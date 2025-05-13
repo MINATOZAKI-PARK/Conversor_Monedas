@@ -31,4 +31,5 @@ bin/
 .out/
 .src/
 *.iml
-D:\Proyectos-Java\conversor\src\key.txt
+# Ignorar clave API
+src/key.txt
