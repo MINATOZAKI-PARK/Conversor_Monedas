@@ -70,11 +70,5 @@ public class Solicitud {
         HttpResponse<String> response = solicitarCotizacion(base, target, amount);
         return procesarRespuesta(response);
     }
-
-    public static void main(String[] args) throws IOException, InterruptedException{
-        Solicitud solectarCotizacion = new Solicitud("D:\\Proyectos-Java\\conversor\\src\\key");
-        HttpResponse <String> response = solectarCotizacion.solicitarCotizacion("EUR", "USD", 100);
-        System.out.println(response.body());
-    }
  }
 
