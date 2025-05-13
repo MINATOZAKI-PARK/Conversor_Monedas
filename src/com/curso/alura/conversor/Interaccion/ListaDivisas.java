@@ -14,7 +14,7 @@ public class ListaDivisas {
         return new HashSet<>(divisasDisponibles);
     }
 
-    public boolean esdivisaDisponible(String divisa){
+    public boolean esDivisaDisponible(String divisa){
         return divisasDisponibles.contains(divisa.toUpperCase());
 
     }
