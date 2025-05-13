@@ -37,7 +37,7 @@ public class Main {
                     System.out.println("Destino: " + respuesta.getTargetCode());
                     System.out.println("Cantidad: " + amount);
                     System.out.println("Resultado: " + respuesta.getConversionRate());
-                    System.out.println("nou: "+respuesta.getConversionResult());
+
                 } catch (Exception e) {
                     System.out.println("Error al obtener la cotización: " + e.getMessage());
                 }
