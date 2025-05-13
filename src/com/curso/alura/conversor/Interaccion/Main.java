@@ -1,4 +1,5 @@
-package com.curso.alura.conversor.Interacion;
+package com.curso.alura.conversor.Interaccion;
+
 import java.util.Scanner;
 
 public class Main {

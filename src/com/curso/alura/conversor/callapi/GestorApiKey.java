@@ -1,4 +1,4 @@
-package com.curso.alura.conversor.api;
+package com.curso.alura.conversor.callapi;
 
 import java.io.IOException;
 import java.nio.file.Files;
