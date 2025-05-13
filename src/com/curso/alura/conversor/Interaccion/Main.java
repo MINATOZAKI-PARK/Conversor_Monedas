@@ -33,12 +33,11 @@ public class Main {
 
                     // Mostrar información completa de la cotización
                     System.out.println("\nCotización:");
-                    System.out.println("Base: " + respuesta.getBase_code());
-                    System.out.println("Destino: " + respuesta.getTarget_code());
-                    System.out.println("Cantidad: " + respuesta.getAmount());
-                    System.out.println("Resultado: " + respuesta.getConversion_result());
-                    System.out.println("Tasa de cambio: " + respuesta.getConversion_rate());
-                    System.out.println("Última actualización: " + respuesta.getTime_last_update_utc());
+                    System.out.println("Base: " + respuesta.getBaseCode());
+                    System.out.println("Destino: " + respuesta.getTargetCode());
+                    System.out.println("Cantidad: " + amount);
+                    System.out.println("Resultado: " + respuesta.getConversionRate());
+                    System.out.println("nou: "+respuesta.getConversionResult());
                 } catch (Exception e) {
                     System.out.println("Error al obtener la cotización: " + e.getMessage());
                 }
