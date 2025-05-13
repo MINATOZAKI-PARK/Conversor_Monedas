@@ -1,10 +1,13 @@
+package com.curso.alura.conversor.api;
+
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.net.http.HttpTimeoutException;
 import java.time.Duration;
+import com.curso.alura.conversor.toGson.ExchangeRateResponse;
+import com.google.gson.Gson;
 
 /**
  * Clase que maneja las solicitudes HTTP al servicio de tasas de cambio
@@ -23,8 +26,8 @@ public class Solicitud {
     /**
      * Constructor que inicializa la clave API desde un archivo
      */
-    Solicitud() {
-        GestorApiKey key = new GestorApiKey("D:\\Proyectos-Java\\conversor\\src\\key");
+    public Solicitud(String apiKeyFilePath) {
+        GestorApiKey key = new GestorApiKey(apiKeyFilePath);
         this.APIKEY = key.getAPIKEY();
     }
 
@@ -57,17 +60,15 @@ public class Solicitud {
         return client.send(request, HttpResponse.BodyHandlers.ofString());
     }
 
-    public static void main(String[] args) throws IOException, InterruptedException {
-        try {
-            Solicitud s = new Solicitud();
-            HttpResponse respuesta = s.solicitarCotizacion("USD","MXN",100);
-            System.out.println(respuesta.body());
-            System.out.println(respuesta.statusCode());
-        } catch (HttpTimeoutException e) {
-            System.out.println(e.getMessage());
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+    public ExchangeRateResponse procesarRespuesta(HttpResponse<String> response) {
+        Gson gson = new Gson(); // Crea un Gson para procesar la respuesta
+        return gson.fromJson(response.body(), ExchangeRateResponse.class); // Procesa la respuesta y devuelve un objeto
     }
 
-}
+    public ExchangeRateResponse obtenerCotizacion(String base, String target, int amount)
+            throws IOException, InterruptedException{
+        HttpResponse<String> response = solicitarCotizacion(base, target, amount);
+        return procesarRespuesta(response);
+    }
+ }
+

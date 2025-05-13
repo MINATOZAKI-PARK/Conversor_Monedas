@@ -1,3 +1,5 @@
+package com.curso.alura.conversor.api;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -21,13 +23,13 @@ public class GestorApiKey {
     public GestorApiKey(String apiKeyFilePath) {
         try {
             // Lee la API key desde el archivo txt
-            Path path = Paths.get(apiKeyFilePath);
+            Path path = Paths.get(apiKeyFilePath); // Ruta al archivo de API key
             APIKEY = Files.readString(path).trim(); // trim() para eliminar espacios o saltos de línea
 
-            if (APIKEY == null || APIKEY.isEmpty()) {
-                throw new IllegalStateException("El archivo de API key está vacío");
+            if (APIKEY == null || APIKEY.isEmpty()) { // Comprueba que la clave API no sea nula ni vacía
+                throw new IllegalStateException("El archivo de API key está vacío"); // Lanza una excepción
             }
-        } catch (IOException ex) {
+        } catch (IOException ex) { // Lanza una excepción si no se puede leer el archivo
             throw new IllegalStateException("No se pudo leer el archivo de API key: " + apiKeyFilePath, ex);
         }
     }
@@ -35,8 +37,8 @@ public class GestorApiKey {
     /**
      * Constructor por defecto que establece una clave API predeterminada
      */
-    public GestorApiKey() {
-        APIKEY = "<KEY>";
+    public GestorApiKey() { // Constructor por defecto que establece una clave API predeterminada
+        APIKEY = "<KEY>"; // Clave API predeterminada
     }
 
     /**
@@ -45,6 +47,6 @@ public class GestorApiKey {
      * @return La clave API almacenada
      */
     public String getAPIKEY() {
-        return APIKEY;
+        return APIKEY; // Retorna la clave API almacenada
     }
 }
