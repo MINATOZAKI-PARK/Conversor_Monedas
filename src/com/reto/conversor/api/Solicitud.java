@@ -51,6 +51,9 @@ public class Solicitud {
     public HttpResponse<String> solicitarCotizacion(String base, String target, int amount)
             throws IOException, InterruptedException {
 
+        if (base == null || target == null || base.isEmpty() || target.isEmpty() || amount <= 0){
+            throw new IllegalArgumentException("Parametros invalidos para la conversion");
+        }
 
         // Construye la solicitud HTTP
         HttpRequest request = HttpRequest.newBuilder()
