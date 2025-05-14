@@ -26,6 +26,13 @@ public class Solicitud {
     /**
      * Constructor que inicializa la clave API desde un archivo
      */
+
+    private static final HttpClient CLIENT = HttpClient.newBuilder()
+            .version(HttpClient.Version.HTTP_2)
+            .connectTimeout(Duration.ofSeconds(10))
+            .build(); // Crea el cliente HTTP con timeout de 10 segundos
+
+
     public Solicitud(String apiKeyFilePath) {
         GestorApiKey key = new GestorApiKey(apiKeyFilePath);
         this.APIKEY = key.getAPIKEY();
