@@ -12,7 +12,7 @@ public class GestorApiKey {
     /**
      * Almacena la clave API
      */
-    private final String APIKEY;
+    private final String apiKey;
 
     /**
      * Constructor que lee la clave API desde un archivo
@@ -24,9 +24,9 @@ public class GestorApiKey {
         try {
             // Lee la API key desde el archivo txt
             Path path = Paths.get(apiKeyFilePath); // Ruta al archivo de API key
-            APIKEY = Files.readString(path).trim(); // trim() para eliminar espacios o saltos de línea
+            apiKey = Objects.requireNonNull(Files.readString(path), "El archivo de API key es nulo").trim(); // trim() para eliminar espacios o saltos de línea
 
-            if (APIKEY == null || APIKEY.isEmpty()) { // Comprueba que la clave API no sea nula ni vacía
+            if (apiKey.isEmpty()) { // Comprueba que la clave API no sea nula ni vacía
                 throw new IllegalStateException("El archivo de API key está vacío"); // Lanza una excepción
             }
         } catch (IOException ex) { // Lanza una excepción si no se puede leer el archivo
@@ -37,16 +37,12 @@ public class GestorApiKey {
     /**
      * Constructor por defecto que establece una clave API predeterminada
      */
-    public GestorApiKey() { // Constructor por defecto que establece una clave API predeterminada
-        throw new IllegalStateException("No se proporcionó ruta de archivo para la clave API."); // Clave API predeterminada
-    }
-
     /**
      * Obtiene la clave API
      *
      * @return La clave API almacenada
      */
     public String getAPIKEY() {
-        return APIKEY; // Retorna la clave API almacenada
+        return apiKey; // Retorna la clave API almacenada
     }
 }
