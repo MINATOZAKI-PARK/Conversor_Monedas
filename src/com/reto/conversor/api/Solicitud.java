@@ -10,7 +10,10 @@ import com.reto.conversor.toGson.ExchangeRateResponse;
 import com.google.gson.Gson;
 
 /**
- * Clase que maneja las solicitudes HTTP al servicio de tasas de cambio
+ * Clase que gestiona la creación de solicitudes HTTP para obtener cotizaciones entre monedas
+ * desde un servicio de tasas de cambio. Utiliza una clave API para la autorización y opera
+ * sobre una base de URL predefinida. Incluye funcionalidades para procesar las respuestas
+ * obtenidas del servicio.
  */
 public class Solicitud {
     /**
