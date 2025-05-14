@@ -1,4 +1,4 @@
-package com.curso.alura.conversor.Interaccion;
+package com.reto.conversor.Interaccion;
 
 import java.util.Arrays;
 import java.util.HashSet;

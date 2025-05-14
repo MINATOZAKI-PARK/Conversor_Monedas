@@ -1,4 +1,4 @@
-package com.curso.alura.conversor.callapi;
+package com.reto.conversor.api;
 
 import java.io.IOException;
 import java.net.URI;
@@ -6,7 +6,7 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.time.Duration;
-import com.curso.alura.conversor.toGson.ExchangeRateResponse;
+import com.reto.conversor.toGson.ExchangeRateResponse;
 import com.google.gson.Gson;
 
 /**
@@ -50,21 +50,17 @@ public class Solicitud {
      */
     public HttpResponse<String> solicitarCotizacion(String base, String target, int amount)
             throws IOException, InterruptedException {
-        // Crea el cliente HTTP con timeout de 10 segundos
-        HttpClient client = HttpClient.newBuilder()
-                .version(HttpClient.Version.HTTP_2)
-                .connectTimeout(Duration.ofSeconds(10))
-                .build();
+
 
         // Construye la solicitud HTTP
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create("https://v6.exchangerate-api.com/v6/" + APIKEY + "/pair/" + base + "/" + target + "/" + amount))
+                .uri(URI.create(URL + APIKEY + "/pair/" + base + "/" + target + "/" + amount))
                 .header("Content-Type", "application/json")
                 .GET()
                 .build();
 
         // Envía la solicitud y retorna la respuesta
-        return client.send(request, HttpResponse.BodyHandlers.ofString());
+        return CLIENT.send(request, HttpResponse.BodyHandlers.ofString());
     }
 
     public ExchangeRateResponse procesarRespuesta(HttpResponse<String> response) {

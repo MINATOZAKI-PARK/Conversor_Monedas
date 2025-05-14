@@ -1,6 +1,6 @@
-package com.curso.alura.conversor.Interaccion;
-import com.curso.alura.conversor.toGson.ExchangeRateResponse;
-import com.curso.alura.conversor.callapi.Solicitud;
+package com.reto.conversor.Interaccion;
+import com.reto.conversor.toGson.ExchangeRateResponse;
+import com.reto.conversor.api.Solicitud;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package com.curso.alura.conversor.toGson;
+package com.reto.conversor.toGson;
 
 public class ExchangeRateResponse {
     private String result;
