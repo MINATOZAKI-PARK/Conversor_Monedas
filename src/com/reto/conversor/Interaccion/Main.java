@@ -36,7 +36,8 @@ public class Main {
                     System.out.println("Base: " + respuesta.getBaseCode());
                     System.out.println("Destino: " + respuesta.getTargetCode());
                     System.out.println("Cantidad: " + amount);
-                    System.out.println("Resultado: " + respuesta.getConversionRate());
+                    System.out.println("Precio: " + respuesta.getConversionRate());
+                    System.out.println("Total: " + respuesta.getConversionResult());
 
                 } catch (Exception e) {
                     System.out.println("Error al obtener la cotización: " + e.getMessage());
