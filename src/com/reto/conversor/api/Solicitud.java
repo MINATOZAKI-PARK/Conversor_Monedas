@@ -33,6 +33,9 @@ public class Solicitud {
             .build(); // Crea el cliente HTTP con timeout de 10 segundos
 
 
+    private static final Gson GSON = new Gson();
+
+
     public Solicitud(String apiKeyFilePath) {
         GestorApiKey key = new GestorApiKey(apiKeyFilePath);
         this.APIKEY = key.getAPIKEY();
@@ -67,8 +70,8 @@ public class Solicitud {
     }
 
     public ExchangeRateResponse procesarRespuesta(HttpResponse<String> response) {
-        Gson gson = new Gson(); // Crea un Gson para procesar la respuesta
-        return gson.fromJson(response.body(), ExchangeRateResponse.class); // Procesa la respuesta y devuelve un objeto
+         // Crea un Gson para procesar la respuesta
+        return GSON.fromJson(response.body(), ExchangeRateResponse.class); // Procesa la respuesta y devuelve un objeto
     }
 
     public ExchangeRateResponse obtenerCotizacion(String base, String target, int amount)
