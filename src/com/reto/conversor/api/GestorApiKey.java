@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-
+import java.util.Objects;
 /**
  * Clase que gestiona la clave API para el servicio de tasas de cambio
  */
@@ -38,7 +38,7 @@ public class GestorApiKey {
      * Constructor por defecto que establece una clave API predeterminada
      */
     public GestorApiKey() { // Constructor por defecto que establece una clave API predeterminada
-        APIKEY = "<KEY>"; // Clave API predeterminada
+        throw new IllegalStateException("No se proporcionó ruta de archivo para la clave API."); // Clave API predeterminada
     }
 
     /**
