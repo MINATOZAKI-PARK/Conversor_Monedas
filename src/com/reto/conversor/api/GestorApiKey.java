@@ -6,7 +6,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Objects;
 /**
- * Clase que gestiona la clave API para el servicio de tasas de cambio
+ * Clase que gestiona la lectura y almacenamiento de una clave API.
+ * Permite cargar la clave desde un archivo y proporciona un método para acceder a ella.
  */
 public class GestorApiKey {
     /**
